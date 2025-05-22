@@ -4,7 +4,7 @@ import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
 import { Link } from '@inertiajs/react';
-import { BookOpen, Folder, LayoutGrid, Banknote, DollarSign, Users2 } from 'lucide-react';
+import { BookOpen, Folder, LayoutGrid, Banknote, DollarSign, Users2, Euro } from 'lucide-react';
 import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
@@ -21,7 +21,7 @@ const mainNavItems: NavItem[] = [
     {
         title: 'Commission',
         href: '/dashboard/commission',
-        icon: DollarSign,
+        icon: Euro,
     },
     {
         title: 'Withdrawals',
