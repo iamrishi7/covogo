@@ -42,7 +42,7 @@ class HandleInertiaRequests extends Middleware
         if (Auth::check()) {
             $role = $request->user()->getRoleNames();
         } else {
-            null;
+            $role = null;
         }
         return [
             ...parent::share($request),
