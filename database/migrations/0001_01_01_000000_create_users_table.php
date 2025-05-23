@@ -19,7 +19,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->foreignIdFor(User::class, 'referred_by')->nullable();
-            $table->uuid('referral_code')->unique('unique_referral');
+            $table->integer('referral_code', false, true)->nullable()->unique('unique_referral');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -64,6 +64,7 @@ class ProfileController extends Controller
 
     public function referrals()
     {
-        return User::where('referred_by', Auth::user()->id)->get();
+        $users = User::where('referred_by', Auth::user()->id)->get(['name', 'created_at']);
+        return Inertia::render('dashboard/signups', ['users' => $users]);
     }
 }

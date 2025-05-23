@@ -1,8 +1,8 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import AppLayout from '@/layouts/app-layout';
-import { type BreadcrumbItem } from '@/types';
-import { Head } from '@inertiajs/react';
+import { SharedData, type BreadcrumbItem } from '@/types';
+import { Head, usePage } from '@inertiajs/react';
 import { Euro, Users } from 'lucide-react';
 import QRCode from 'react-qr-code';
 
@@ -13,53 +13,10 @@ const breadcrumbs: BreadcrumbItem[] = [
     },
 ];
 
-const referrals = [
-    {
-        id: 'INV001',
-        paymentStatus: 'Paid',
-        name: 'John Doe',
-        created_at: '2023-07-01',
-    },
-    {
-        id: 'INV002',
-        paymentStatus: 'Pending',
-        name: 'Karan',
-        created_at: '2023-07-01',
-    },
-    {
-        id: 'INV003',
-        paymentStatus: 'Unpaid',
-        name: 'Adam',
-        created_at: '2023-07-01',
-    },
-    {
-        id: 'INV004',
-        paymentStatus: 'Paid',
-        name: 'Bob',
-        created_at: '2023-07-01',
-    },
-    {
-        id: 'INV005',
-        paymentStatus: 'Paid',
-        name: 'Amanda',
-        created_at: '2023-07-01',
-    },
-    {
-        id: 'INV006',
-        paymentStatus: 'Pending',
-        name: 'Nicolas',
-        created_at: '2023-07-01',
-    },
-    {
-        id: 'INV007',
-        paymentStatus: 'Unpaid',
-        name: 'Ruth',
-        created_at: '2023-07-01',
-    },
-];
 
-export default function Dashboard() {
-    const myReferralCode = '6789';
+export default function Dashboard({user}: any) {
+    const { auth, signups, total_signups } = usePage<SharedData>().props;
+    const myReferralCode = auth.user?.referral_code ?? "";
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
@@ -74,7 +31,8 @@ export default function Dashboard() {
                             </CardHeader>
                             <CardContent className="pt-8">
                                 <div className="flex flex-row items-end justify-between">
-                                    <h2 className="text-5xl font-bold">45</h2>
+                                    {/* @ts-ignore */}
+                                    <h2 className="text-5xl font-bold">{total_signups}</h2>
                                     <Users className="text-muted-foreground" />
                                 </div>
                             </CardContent>
@@ -113,9 +71,10 @@ export default function Dashboard() {
                     <div className="border-sidebar-border/70 dark:border-sidebar-border relative flex flex-col items-center justify-center overflow-hidden rounded-xl border p-4">
                         <p className="text-muted-foreground text-center">Your Referral Link</p>
                         <div className="mx-auto">
-                            <QRCode value={`/auth/register?ref=${myReferralCode}`} className="w-48" />
+                            <QRCode value={`https://covogo.krispire.xyz/auth/register?ref=${myReferralCode}`} className="w-48" />
                         </div>
                         <h3 className="text-center">
+                            {/* @ts-ignore */}
                             <b>Code: {myReferralCode}</b>
                         </h3>
                     </div>
@@ -136,12 +95,13 @@ export default function Dashboard() {
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>
-                                        {referrals.slice(0, 5).map((data) => (
+                                        {/* @ts-ignore */}
+                                        {typeof signups == 'object' && signups?.length ? signups?.slice(0, 5).map((data) => (
                                             <TableRow key={data.id}>
                                                 <TableCell className="font-medium">{data.name}</TableCell>
-                                                <TableCell>{data.created_at}</TableCell>
+                                                <TableCell>{data.created_at ? new Date(data.created_at).toLocaleString() : ''}</TableCell>
                                             </TableRow>
-                                        ))}
+                                        )) : null}
                                     </TableBody>
                                 </Table>
                             </CardContent>

@@ -40,7 +40,7 @@ class RegisteredUserController extends Controller
             'role' => ['required_without:referral_code', 'exists:roles,name']
         ]);
 
-        if (!is_null($request->referral_id) || !empty($request->referral_id)) {
+        if (!is_null($request->referral_code) || !empty($request->referral_code)) {
             $referer = User::where('referral_code', $request->referral_code)->firstOrFail();
             $referral = $referer->id;
             $role = 'rider';
@@ -54,8 +54,9 @@ class RegisteredUserController extends Controller
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'referred_by' => $referral,
-            'referral_code' => Str::uuid()
         ])->assignRole($role);
+        $user->referral_code = 1000+$user->id;
+        $user->save();
 
         event(new Registered($user));
 
