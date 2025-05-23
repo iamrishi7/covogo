@@ -10,14 +10,20 @@ Route::get('/', [RegisteredUserController::class, 'create'])->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
+        if (auth()->user()->hasRole('driver')) {
+            $route = 'dashboard/driver';
+        } else {
+            $route = 'dashboard/rider';
+        }
         return Inertia::render(
-            'dashboard',
+            $route,
             [
                 'signups' => User::where('referred_by', auth()->user()->id)->take(5)->latest()->get(['name', 'created_at']),
                 'total_signups' => User::where('referred_by', auth()->user()->id)->count()
             ]
         );
     })->name('dashboard');
+
     Route::get('dashboard/commission', function () {
         return Inertia::render('dashboard/commission');
     })->name('commission');
