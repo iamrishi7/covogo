@@ -71,7 +71,7 @@ export default function Dashboard({user}: any) {
                     <div className="border-sidebar-border/70 dark:border-sidebar-border relative flex flex-col items-center justify-center overflow-hidden rounded-xl border p-4">
                         <p className="text-muted-foreground text-center">Your Referral Link</p>
                         <div className="mx-auto">
-                            <QRCode value={`https://covogo.krispire.xyz/auth/register?ref=${myReferralCode}`} className="w-48" />
+                            <QRCode value={`https://covogo.krispire.xyz/register?ref=${myReferralCode}`} className="w-48" />
                         </div>
                         <h3 className="text-center">
                             {/* @ts-ignore */}

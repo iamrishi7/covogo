@@ -1,4 +1,4 @@
-import { Head, useForm } from '@inertiajs/react';
+import { Head, useForm, usePage } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
 
@@ -20,13 +20,18 @@ type RegisterForm = {
 };
 
 export default function Register() {
+    const { url } = usePage();
+  const queryParams = new URLSearchParams(url.split('?')[1]);
+
+  const ref = queryParams.get('ref')
+
     const { data, setData, post, processing, errors, reset } = useForm<Required<RegisterForm>>({
         role: 'driver',
         name: '',
         email: '',
         password: '',
         password_confirmation: '',
-        referral_code: ''
+        referral_code: ref ?? ''
     });
 
     const submit: FormEventHandler = (e) => {
@@ -123,7 +128,7 @@ export default function Register() {
                             tabIndex={4}
                             value={data.referral_code}
                             onChange={(e) => setData('referral_code', e.target.value)}
-                            disabled={processing}
+                            disabled={processing || Boolean(ref)}
                             placeholder="Referral Code"
                         />
                         <InputError message={errors.referral_code} />
