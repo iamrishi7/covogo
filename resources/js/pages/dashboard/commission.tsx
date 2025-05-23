@@ -74,11 +74,11 @@ export default function Commission() {
             <Head title="Commission" />
 
             <div className="w-full flex h-full flex-1 flex-col gap-4 rounded-xl p-4 items-end">
-                <p className='text-sm'>Filter by Date</p>
+                <p className='text-sm'>Filtrer par date</p>
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button variant={'outline'} className={'w-[240px] pl-3 text-left font-normal'}>
-                            <span>Pick dates</span>
+                            <span>Choisir des dates</span>
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
                     </PopoverTrigger>
@@ -89,13 +89,13 @@ export default function Commission() {
                 <br />
 
                 <Table>
-                    <TableCaption>Commission you earned</TableCaption>
+                    <TableCaption>Commission que vous avez gagnée</TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>User</TableHead>
-                            <TableHead>Trip ID</TableHead>
+                            <TableHead>Utilisatrice</TableHead>
+                            <TableHead>Voyage ID</TableHead>
                             <TableHead className="w-[140px]">Commission (€)</TableHead>
-                            <TableHead className="text-right">Timestamp</TableHead>
+                            <TableHead className="text-right">Horodatage</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>

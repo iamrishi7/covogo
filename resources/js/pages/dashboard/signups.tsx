@@ -10,7 +10,7 @@ import React from 'react';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {
-        title: 'Signups',
+        title: 'Inscriptions',
         href: '/dashboard/signups',
     },
 ];
@@ -28,14 +28,14 @@ export default function Signups() {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Signups" />
+            <Head title="Inscriptions" />
 
             <div className="flex h-full w-full flex-1 flex-col items-end gap-4 rounded-xl p-4">
-                <p className="text-sm">Filter by Date</p>
+                <p className="text-sm">Filtrer par date</p>
                 <Popover>
                     <PopoverTrigger asChild>
                         <Button variant={'outline'} className={'w-[240px] pl-3 text-left font-normal'}>
-                            <span>Pick dates</span>
+                            <span>Choisir des dates</span>
                             <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                         </Button>
                     </PopoverTrigger>
@@ -46,12 +46,12 @@ export default function Signups() {
                 <br />
 
                 <Table>
-                    <TableCaption>A list of your recent referrals.</TableCaption>
+                    <TableCaption>Une liste de vos références récentes.</TableCaption>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>User</TableHead>
-                            <TableHead className="w-[140px]">Total Commission</TableHead>
-                            <TableHead className="text-right">Registered At</TableHead>
+                            <TableHead>Utilisatrices</TableHead>
+                            <TableHead className="w-[140px]">Totale Commission</TableHead>
+                            <TableHead className="text-right">Inscrit le</TableHead>
                         </TableRow>
                     </TableHeader>
                     <TableBody>

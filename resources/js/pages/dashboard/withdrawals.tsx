@@ -76,13 +76,13 @@ export default function Withdrawals() {
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="flex h-full w-full flex-1 flex-col items-end gap-4 rounded-xl p-4">
                     <div className="flex w-full flex-row items-end justify-between">
-                        <Button>+ New Request</Button>
+                        <Button>+ Nouvelle demande</Button>
                         <div className="">
-                            <p className="text-sm mb-2">Filter by Date</p>
+                            <p className="text-sm mb-2">Filtrer par date</p>
                             <Popover>
                                 <PopoverTrigger asChild>
                                     <Button variant={'outline'} className={'w-[240px] pl-3 text-left font-normal'}>
-                                        <span>Pick dates</span>
+                                        <span>Choisir des dates</span>
                                         <CalendarIcon className="ml-auto h-4 w-4 opacity-50" />
                                     </Button>
                                 </PopoverTrigger>
@@ -95,14 +95,14 @@ export default function Withdrawals() {
                     <br />
 
                     <Table>
-                        <TableCaption>Payouts settled to your account</TableCaption>
+                        <TableCaption>Paiements réglés sur votre compte</TableCaption>
                         <TableHeader>
                             <TableRow>
                                 <TableHead>Settlement ID</TableHead>
-                                <TableHead>Amount</TableHead>
-                                <TableHead className="">Created At</TableHead>
-                                <TableHead className="">Status</TableHead>
-                                <TableHead className="">Created At</TableHead>
+                                <TableHead>Montante</TableHead>
+                                <TableHead className="">Créé à</TableHead>
+                                <TableHead className="">Statut</TableHead>
+                                <TableHead className="">Créé à</TableHead>
                             </TableRow>
                         </TableHeader>
                         <TableBody>
@@ -112,7 +112,7 @@ export default function Withdrawals() {
                                     <TableCell className="">134</TableCell>
                                     <TableCell className="">{data.created_at}</TableCell>
                                     <TableCell className="">
-                                        <Badge>Pending</Badge>
+                                        <Badge>En attente</Badge>
                                     </TableCell>
                                     <TableCell className="">{data.created_at}</TableCell>
                                 </TableRow>

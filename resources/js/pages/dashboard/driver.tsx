@@ -20,14 +20,14 @@ export default function Dashboard({user}: any) {
 
     return (
         <AppLayout breadcrumbs={breadcrumbs}>
-            <Head title="Dashboard" />
+            <Head title="Tableau de bord" />
             <div className="flex h-full flex-1 flex-col gap-4 rounded-xl p-4">
                 <div className="grid auto-rows-min gap-4 md:grid-cols-3">
                     <div className="border-sidebar-border/70 dark:border-sidebar-border relative overflow-hidden rounded-xl border">
                         <Card className="h-full">
                             <CardHeader>
-                                <CardTitle>Signups</CardTitle>
-                                <CardDescription>New signups with your code</CardDescription>
+                                <CardTitle>Inscriptions</CardTitle>
+                                <CardDescription>Nouvelles inscriptions avec votre code</CardDescription>
                             </CardHeader>
                             <CardContent className="pt-8">
                                 <div className="flex flex-row items-end justify-between">
@@ -42,7 +42,7 @@ export default function Dashboard({user}: any) {
                         <Card className="h-full">
                             <CardHeader>
                                 <CardTitle>Commission</CardTitle>
-                                <CardDescription>Commission earned through rides</CardDescription>
+                                <CardDescription>Commission gagnée grâce aux trajets</CardDescription>
                             </CardHeader>
                             <CardContent className="pt-8">
                                 <div className="flex flex-row items-end justify-between">
@@ -55,8 +55,8 @@ export default function Dashboard({user}: any) {
                     <div className="border-sidebar-border/70 dark:border-sidebar-border relative overflow-hidden rounded-xl border">
                         <Card className="h-full">
                             <CardHeader>
-                                <CardTitle>Withdrawals</CardTitle>
-                                <CardDescription>Payouts settled in your account</CardDescription>
+                                <CardTitle>Retraits</CardTitle>
+                                <CardDescription>Paiements réglés sur votre compte</CardDescription>
                             </CardHeader>
                             <CardContent className="pt-8">
                                 <div className="flex flex-row items-end justify-between">
@@ -69,7 +69,7 @@ export default function Dashboard({user}: any) {
                 </div>
                 <div className="relative grid min-h-[100vh] flex-1 auto-rows-min gap-4 overflow-hidden rounded-xl md:min-h-min md:grid-cols-3">
                     <div className="border-sidebar-border/70 dark:border-sidebar-border relative flex flex-col items-center justify-center overflow-hidden rounded-xl border p-4">
-                        <p className="text-muted-foreground text-center">Your Referral Link</p>
+                        <p className="text-muted-foreground text-center">Votre lien de parrainage</p>
                         <div className="mx-auto">
                             <QRCode value={`https://covogo.krispire.xyz/register?ref=${myReferralCode}`} className="w-48" />
                         </div>
@@ -82,16 +82,16 @@ export default function Dashboard({user}: any) {
                     <div className="border-sidebar-border/70 dark:border-sidebar-border relative col-span-2 overflow-hidden rounded-xl border">
                         <Card className="h-full">
                             <CardHeader>
-                                <CardTitle>Referrals</CardTitle>
-                                <CardDescription>Most recent referrals</CardDescription>
+                                <CardTitle>Parrainages</CardTitle>
+                                <CardDescription>Parrainages les plus récents</CardDescription>
                             </CardHeader>
                             <CardContent className="">
                                 <Table>
-                                    <TableCaption>A list of your recent referrals.</TableCaption>
+                                    <TableCaption>Une liste de vos références récentes.</TableCaption>
                                     <TableHeader>
                                         <TableRow>
-                                            <TableHead>User</TableHead>
-                                            <TableHead>Registered At</TableHead>
+                                            <TableHead>Utilisateur</TableHead>
+                                            <TableHead>Inscrit le</TableHead>
                                         </TableRow>
                                     </TableHeader>
                                     <TableBody>

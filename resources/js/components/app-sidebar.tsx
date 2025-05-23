@@ -9,12 +9,12 @@ import AppLogo from './app-logo';
 
 const mainNavItems: NavItem[] = [
     {
-        title: 'Dashboard',
+        title: 'Tableau de bord',
         href: '/dashboard',
         icon: LayoutGrid,
     },
     {
-        title: 'Signups',
+        title: 'Inscriptions',
         href: '/dashboard/signups',
         icon: Users2,
     },
@@ -24,7 +24,7 @@ const mainNavItems: NavItem[] = [
         icon: Euro,
     },
     {
-        title: 'Withdrawals',
+        title: 'Retraits',
         href: '/dashboard/withdrawals',
         icon: Banknote,
     },
